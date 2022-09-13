@@ -1,8 +1,13 @@
 import React from 'react';
 
-function Nav() {
+function Nav( { user } ) {
     return (
-		<React.Fragment>Nav</React.Fragment>
+		<div className='nav'>
+            <div className='container'>
+                <h1>Budget App</h1>
+                <span>{user.email}</span>
+            </div>
+        </div>
 	);
 }
 

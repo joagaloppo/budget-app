@@ -25,7 +25,7 @@ function Dashboard() {
 
 	return (
 		<React.Fragment>
-            <Nav />
+            {user && <Nav user={user} />}
             Dashboard
         </React.Fragment>
 	);
