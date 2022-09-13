@@ -3,10 +3,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import Nav from './Nav.js';
+import Summary from './Summary.js';
 
 function Dashboard() {
     const navigate = useNavigate();
     const [user, setUser] = React.useState();
+	const [transactions, setTransactions] = React.useState([]);
     
     const fetchData = React.useCallback(() => {
 		const isValidated = async () => {
@@ -16,8 +18,24 @@ function Dashboard() {
 			return res.data;
 		};
 
-		isValidated();
+		const fetchTransactions = async (id) => {
+			const res = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/transaction/${id}`);
+			setTransactions(res.data);
+			return res.data;
+		};
+
+		isValidated()
+			.then((e) => fetchTransactions(e.id))
+			.catch((err) => console.log(err));
 	}, [navigate]);
+
+	const balance = (list) => {
+		let sum = 0;
+		list.forEach((e) => {
+			e.type === 'in' ? (sum += e.amount) : (sum -= e.amount);
+		});
+		return sum;
+	};
 
     React.useEffect(() => {
 		fetchData();
@@ -26,7 +44,7 @@ function Dashboard() {
 	return (
 		<React.Fragment>
             {user && <Nav user={user} />}
-            Dashboard
+			<Summary transactions={transactions} balance={balance} />
         </React.Fragment>
 	);
 }
