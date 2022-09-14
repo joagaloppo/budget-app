@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
+// Components
 import Nav from './Nav.js';
 import Summary from './Summary.js';
 import Manage from './Manage.js';
@@ -11,6 +12,7 @@ function Dashboard() {
 	const navigate = useNavigate();
 	const [user, setUser] = React.useState();
 	const [transactions, setTransactions] = React.useState([]);
+	const [loading, setLoading] = React.useState(true);
 
 	const fetchData = React.useCallback(() => {
 		const isValidated = async () => {
@@ -23,6 +25,7 @@ function Dashboard() {
 		const fetchTransactions = async (id) => {
 			const res = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/transaction/${id}`);
 			setTransactions(res.data);
+			setLoading(false);
 			return res.data;
 		};
 
@@ -40,10 +43,10 @@ function Dashboard() {
 	};
 
 	React.useEffect(() => {
-		console.log("Slug:", slug)
 		fetchData();
 	}, [fetchData]);
 
+	if (loading) return;
 	return (
 		<React.Fragment>
 			{user && <Nav user={user} />}

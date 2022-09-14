@@ -7,12 +7,14 @@ function Auth() {
 	const [input, setInput] = React.useState({username: "", password: ""});
 	const [error, setError] = React.useState({});
     const [login, setLogin] = React.useState(true);
+    const [loading, setLoading] = React.useState(true);
 
 	React.useEffect(() => {
 		axios
 			.get(process.env.REACT_APP_GET_USER_AUTH, { withCredentials: true })
 			.then((res) => {
 				if (res.data) navigate('/dashboard');
+				setLoading(false);
 			})
 			.catch((err) => console.log(err));
 	}, [navigate]);
@@ -51,6 +53,7 @@ function Auth() {
         return err;
     }
 
+	if (loading) return;
     return (
     <div className='form auth'>
         <div className='box auth'>
