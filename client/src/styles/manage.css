@@ -1,0 +1,7 @@
+.overlay.no-display {
+    display: none;
+}
+
+.overlay {
+    display: block;
+}

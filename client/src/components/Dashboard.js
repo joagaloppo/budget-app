@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Nav from './Nav.js';
 import Summary from './Summary.js';
+import Manage from './Manage.js';
 
 function Dashboard() {
-    const navigate = useNavigate();
-    const [user, setUser] = React.useState();
+	const { slug } = useParams();
+	const navigate = useNavigate();
+	const [user, setUser] = React.useState();
 	const [transactions, setTransactions] = React.useState([]);
-    
-    const fetchData = React.useCallback(() => {
+
+	const fetchData = React.useCallback(() => {
 		const isValidated = async () => {
 			const res = await axios.get(process.env.REACT_APP_GET_USER_AUTH, { withCredentials: true });
 			if (!res.data) return navigate('/');
@@ -37,15 +39,17 @@ function Dashboard() {
 		return sum;
 	};
 
-    React.useEffect(() => {
+	React.useEffect(() => {
+		console.log("Slug:", slug)
 		fetchData();
 	}, [fetchData]);
 
 	return (
 		<React.Fragment>
-            {user && <Nav user={user} />}
-			<Summary transactions={transactions} balance={balance} />
-        </React.Fragment>
+			{user && <Nav user={user} />}
+			{slug === 'manage' ? <Manage user={user} transactions={transactions} balance={balance} fetchData={fetchData} />
+			: !slug ? <Summary transactions={transactions} balance={balance} /> : null}
+		</React.Fragment>
 	);
 }
 

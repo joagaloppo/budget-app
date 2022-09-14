@@ -11,6 +11,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Auth/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/dashboard/:slug" element={<Dashboard/>} />
       </Routes>
     </React.Fragment>
   );
