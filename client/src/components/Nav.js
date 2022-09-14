@@ -12,13 +12,13 @@ function Nav( { user } ) {
     }
 
     return (
-		<div className='nav'>
+        <div className='nav'>
             <div className='container'>
                 <h1>Budget App</h1>
-                <span>{user.email}<i href="#" onClick={() => handleLogOut()} className="logout">Logout</i></span>
+                <span>{user.email}<i href="#" onClick={() => handleLogOut()} className="logout"/></span>
             </div>
         </div>
-	);
+    );
 }
 
 export default Nav;

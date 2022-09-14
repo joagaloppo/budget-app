@@ -98,8 +98,8 @@ function Manage( { user, transactions, balance, fetchData } ) {
                                     <td className="date">{e.date}</td>
                                     <td className="detail">{e.detail}</td>
                                     <td className="amount"> {e.type === "in" ? "+" : "-" }${e.amount} </td>
-                                    <td className="edit"><button name={e.id} onClick={(e) => handleAutoComplete(e)} className="edit">Edit</button></td>
-                                    <td className="delete"><button name={e.id} onClick={(e) => handleDelete(e)} className="delete">Delete</button></td>
+                                    <td className="edit"><button name={e.id} onClick={(e) => handleAutoComplete(e)} className="edit"/></td>
+                                    <td className="delete"><button name={e.id} onClick={(e) => handleDelete(e)} className="delete"/></td>
                                 </tr>
                             )
                         })}
