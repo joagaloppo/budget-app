@@ -1,0 +1,66 @@
+.form.auth {
+    height: 100%;
+}
+
+.box.auth {
+    position: absolute;
+    min-width: 160px;
+    padding: 60px 100px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box.auth h2 {
+    margin-block-start: 0;
+    margin-block-end: 19px;
+}
+
+.box.auth input {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    border: 0;
+    border-bottom: 1px solid #c3c3c3;
+    font-size: 14px;
+}
+
+.box.auth input:focus-visible {
+    outline: 0px;
+}
+
+.box.auth button {
+    width: 100%;
+    margin: 10px auto;
+    color:#222;
+    font-size: 14px;
+}
+
+.box.auth span {
+    text-align: center;
+    margin-inline: auto;
+    display: block;
+    font-size:14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.box.auth span.error {
+    color: #d77777;
+    text-decoration: none;
+    text-align: left;
+    cursor:default;
+    margin-block: -5px 5px;
+}
+
+.box.auth .input.error input {
+    color: #d77777;
+    border-color: #d77777;
+    background-color: #fff8f8;
+}
+
+.box.auth .input.error input::placeholder {
+    color: transparent;
+}

@@ -1,0 +1,32 @@
+.nav {
+    height: 60px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.nav .container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+
+.nav .container h1, .nav .container span {
+    margin: 20px 40px;
+}
+
+.nav h1 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav .container span .logout {
+    padding-inline: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-image: url(./img/logout.png);
+    background-size: 15px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,150 @@
+/* ######### */
+/* ######### */
+/* DASHBOARD */
+/* ######### */
+/* ######### */
+
+.dashboard {
+    max-width: 800px;
+    margin-top: 40px;
+    margin-inline: auto;
+    background: #ffffff;
+}
+
+.dashboard .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.dashboard .info h2 {
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* ######### */
+/* ######### */
+/*  BUTTONS  */
+/* ######### */
+/* ######### */
+
+button {
+    height: fit-content;
+    border: 0;
+    padding: 10px;
+    border-radius: 3px;
+    margin-left: 10px;
+    background-color: #eaeaea;
+}
+
+button:hover {
+    background-color: #dadada;
+    cursor: pointer;
+}
+
+button.manage, button.plus, button.back {
+    padding-left: 30px;
+    background-size: 10px;
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+}
+
+button.plus, button.back, button.in, button.out {
+    width:70px;
+}
+
+button.manage {
+    background-image: url(./img/manage.png);
+}
+
+button.plus {
+    background-image: url(./img/plus.png);
+}
+
+button.back {
+    background-image: url(./img/back.png);
+}
+
+/* ######### */
+/* ######### */
+/*   TABLE   */
+/* ######### */
+/* ######### */
+
+.table {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+table thead tr {
+    background-color: #999;
+    color: #ffffff;
+}
+
+table th {
+    color: #ffffff;
+    height: 40px;
+    font-weight: 500;
+}
+
+table td {
+    height: 30px;
+}
+
+table th, table td {
+    text-align: center;
+    padding: 12px 15px;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+td.id, td.type {
+    width: 10%;
+}
+
+td.edit, td.delete {
+    width: 5%;
+}
+
+td.date, td.amount {
+    width: 15%;
+}
+
+td.detail {
+    width: 50%;
+}
+
+/* ############### */
+/* ############### */
+/*  TABLE BUTTONS  */
+/* ############### */
+/* ############### */
+
+button.edit, button.delete {
+    padding: 18px;
+    margin-left: 0;
+    background-color: transparent;
+    background-size: 16px;
+    background-position: 50%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+button.edit {
+    background-image: url(./img/edit.png);
+}
+
+button.delete {
+    background-image: url(./img/delete.png);
+}
+
+
