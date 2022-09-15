@@ -23,7 +23,7 @@ function Dashboard() {
 		};
 
 		const fetchTransactions = async (id) => {
-			const res = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/transaction/${id}`);
+			const res = await axios.get(`${process.env.REACT_APP_API_FULL_URL}/transaction/${id}`);
 			setTransactions(res.data);
 			setLoading(false);
 			return res.data;
